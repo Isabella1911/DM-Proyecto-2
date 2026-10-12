@@ -13,11 +13,11 @@ st.markdown(
 if not faltan_datos():
     m = tabla(EDA, "muestras.csv")
     c = st.columns(4)
-    c[0].metric("Videos de entrenamiento", f"{len(m)}")
+    c[0].metric("Videos", f"{len(m)}", help="Videos de entrenamiento")
     c[1].metric("Embriones", f"{m['embryo_id'].nunique()}")
     c[2].metric("Células anotadas", f"{int(m['n_nodos'].sum()):,}")
-    c[3].metric("Células anotadas del total estimado",
-                f"{100 * m['n_nodos'].sum() / m['n_estimado'].sum():.1f}%")
+    c[3].metric("% anotado", f"{100 * m['n_nodos'].sum() / m['n_estimado'].sum():.1f}%",
+                help="Células anotadas sobre el total estimado de células")
 
 st.subheader("Cómo usar la aplicación")
 st.markdown(f"""

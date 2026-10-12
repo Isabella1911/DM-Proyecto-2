@@ -64,16 +64,16 @@ with st.expander("¿Qué hace la aplicación con la muestra? (preprocesamiento)"
 
 # --- Resultados ---------------------------------------------------------------------
 st.subheader("Resultado")
-cols = st.columns(len(modelos))
-for col, m in zip(cols, modelos):
+for m in modelos:   # una fila por modelo: cada métrica usa un tercio del ancho, también en pantallas angostas
     nodos, aristas, met, seg_det, seg_enl = res[m]
-    col.markdown(f"<span style='color:{COLOR[m]};font-size:1.3em'>■</span> **{NOMBRE[m]}**", unsafe_allow_html=True)
-    a, b, c = col.columns(3)
+    st.markdown(f"<span style='color:{COLOR[m]};font-size:1.3em'>■</span> **{NOMBRE[m]}**", unsafe_allow_html=True)
+    a, b, c = st.columns(3)
     a.metric("Jaccard ajustado", f"{met['jaccard_ajustado']:.3f}", help="Métrica oficial de aristas (0 a 1, más es mejor)")
-    b.metric("Núcleos anotados encontrados", f"{100 * met['recall_nodos']:.0f}%")
+    b.metric("Núcleos hallados", f"{100 * met['recall_nodos']:.0f}%",
+             help="Porcentaje de las células anotadas que el modelo detectó")
     c.metric("Tiempo", f"{seg_det + seg_enl:.1f} s", help=f"detección {seg_det:.1f} s + enlace {seg_enl:.1f} s")
-    col.caption(f"{len(nodos):,} núcleos detectados · {len(aristas):,} enlaces · "
-                f"{met['tp']} aciertos, {met['fp']} enlaces erróneos, {met['fn']} omitidos")
+    st.caption(f"{len(nodos):,} núcleos detectados · {len(aristas):,} enlaces · "
+               f"{met['tp']} aciertos, {met['fp']} enlaces erróneos, {met['fn']} omitidos")
 
 # --- Visor ---------------------------------------------------------------------------
 st.subheader("Visor")
@@ -82,7 +82,7 @@ t = c1.slider("Instante", 0, T - 1, min(5, T - 1))
 estela = c2.slider("Estela (instantes previos)", 0, 10, 4)
 m_vis = c3.radio("Trayectorias de", modelos, format_func=lambda m: f"Modelo {m}", horizontal=True,
                  help="Los dos modelos comparten las detecciones; lo que cambia es cómo las enlazan")
-ver_anot = c4.toggle("Mostrar anotación", value=True)
+ver_anot = c4.toggle("Anotación", value=True, help="Mostrar las células anotadas (círculos)")
 
 mip = volumen(nombre, t).max(axis=0)
 fig = px.imshow(mip, color_continuous_scale="gray", origin="upper",
@@ -141,8 +141,10 @@ def trazo_3d(nodos, aristas, nombre_traza, color, ancho):
 k = trazo_3d(res[m3][0], res[m3][1], NOMBRE[m3], COLOR[m3], 3)
 if ver_anot:
     trazo_3d(gn, ga, "Anotación", COLOR["anotacion"], 6)
+# El volumen mide ~52 × 52 × 104 µm: con proporciones exactas queda muy angosto, así que Z se comprime un poco
 fig.update_layout(scene=dict(xaxis_title="X (µm)", yaxis_title="Y (µm)", zaxis_title="Z (µm)",
-                             aspectmode="data"))
+                             aspectmode="manual", aspectratio=dict(x=1, y=1, z=1.3),
+                             camera=dict(eye=dict(x=1.35, y=1.35, z=0.75))))
 st.plotly_chart(estilo(fig, 560), width="stretch")
 st.caption(f"{k} trayectorias de al menos {min_len} instantes. La anotación cubre solo una parte de las células, así "
            "que muchas trayectorias del modelo no tienen pareja anotada (y eso no se cuenta como error).")
