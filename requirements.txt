@@ -1,0 +1,8 @@
+# Aplicación (app/) y paquete compartido (biohub/)
+streamlit>=1.40
+plotly>=5.24
+numpy>=2.0
+pandas>=2.2
+scipy>=1.11
+numcodecs>=0.13      # descompresión blosc/zstd de los archivos Zarr
+btrack==0.7.0        # modelo C
