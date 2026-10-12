@@ -1,0 +1,12 @@
+# Tema de la aplicación (se lee al ejecutar `streamlit run app/app.py` desde la raíz del repositorio).
+# El acento de la interfaz es un azul marino neutro: no coincide con ningún color de datos, que se reservan
+# para identificar modelos, anotación y embriones.
+[theme]
+base = "light"
+primaryColor = "#1e3a5f"
+backgroundColor = "#fcfcfb"
+secondaryBackgroundColor = "#f0efec"
+textColor = "#0b0b0b"
+
+[server]
+headless = true
