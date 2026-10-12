@@ -22,6 +22,7 @@ trayectorias y divisiones.
 │   └── modelo_C_btrack.ipynb      Mismas detecciones que A + btrack (Kalman + optimización global)
 ├── biohub/                        Código compartido de los modelos A y C (lector, detección, enlace, métrica)
 ├── app/                           Aplicación Streamlit (en construcción)
+│   └── exportar_datos_kaggle.ipynb   Genera en Kaggle las muestras demo y las tablas que usa la app
 ├── docs/                          Documentos de apoyo (cambios al informe del EDA)
 └── archivo/                       Versiones anteriores que ya no se usan
 ```
