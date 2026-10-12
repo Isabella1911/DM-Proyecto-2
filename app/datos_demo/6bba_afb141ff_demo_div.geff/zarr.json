@@ -1,0 +1,18 @@
+{
+  "attributes": {
+    "geff": {
+      "geff_version": "0.4",
+      "directed": true,
+      "estimated_number_of_nodes": 454,
+      "demo": {
+        "origen": "6bba_afb141ff",
+        "t0": 20,
+        "y0": 64,
+        "x0": 112,
+        "fraccion_volumen_tiempo": 0.075
+      }
+    }
+  },
+  "zarr_format": 3,
+  "node_type": "group"
+}

@@ -1,0 +1,59 @@
+[
+  {
+    "nombre": "44b6_415c0a3a_demo_nodos",
+    "origen": "44b6_415c0a3a",
+    "embryo_id": "44b6",
+    "criterio": "nodos",
+    "t0": 0,
+    "y0": 32,
+    "x0": 48,
+    "forma": [
+      30,
+      64,
+      128,
+      128
+    ],
+    "nodos_anotados": 124,
+    "aristas_anotadas": 119,
+    "divisiones_anotadas": 0,
+    "n_estimado": 4297
+  },
+  {
+    "nombre": "6bba_7af54fde_demo_nodos",
+    "origen": "6bba_7af54fde",
+    "embryo_id": "6bba",
+    "criterio": "nodos",
+    "t0": 70,
+    "y0": 112,
+    "x0": 16,
+    "forma": [
+      30,
+      64,
+      128,
+      128
+    ],
+    "nodos_anotados": 242,
+    "aristas_anotadas": 229,
+    "divisiones_anotadas": 0,
+    "n_estimado": 722
+  },
+  {
+    "nombre": "6bba_afb141ff_demo_div",
+    "origen": "6bba_afb141ff",
+    "embryo_id": "6bba",
+    "criterio": "divisiones",
+    "t0": 20,
+    "y0": 64,
+    "x0": 112,
+    "forma": [
+      30,
+      64,
+      128,
+      128
+    ],
+    "nodos_anotados": 156,
+    "aristas_anotadas": 137,
+    "divisiones_anotadas": 3,
+    "n_estimado": 454
+  }
+]

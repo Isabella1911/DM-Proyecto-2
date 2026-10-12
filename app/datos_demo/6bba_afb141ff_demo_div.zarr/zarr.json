@@ -1,0 +1,38 @@
+{
+  "attributes": {
+    "multiscales": [
+      {
+        "datasets": [
+          {
+            "path": "0",
+            "coordinateTransformations": [
+              {
+                "type": "scale",
+                "scale": [
+                  1.0,
+                  1.625,
+                  0.40625,
+                  0.40625
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "demo": {
+      "origen": "6bba_afb141ff",
+      "t0": 20,
+      "y0": 64,
+      "x0": 112,
+      "forma_original": [
+        100,
+        64,
+        256,
+        256
+      ]
+    }
+  },
+  "zarr_format": 3,
+  "node_type": "group"
+}
