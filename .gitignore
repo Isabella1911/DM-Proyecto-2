@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Datos locales (el conjunto completo pesa 87.6 GB y se usa montado en Kaggle).
+# Las muestras de demostración de la app sí se versionan: van en app/datos_demo/.
+datos/
+*.zarr
+!app/datos_demo/*.zarr
+*.geff
+!app/datos_demo/*.geff
+
+# Salidas de Kaggle
+submission.csv
+predictions/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Sistema
+.DS_Store

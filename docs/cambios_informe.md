@@ -1,7 +1,7 @@
 # Actualización del informe: de 30 a 199 muestras
 
 Guía para actualizar *DM Proyecto 2. Análisis Exploratorio* (versión del 07/09/2026) con la corrida
-completa en Kaggle (`proyecto2-ds.ipynb`). Va sección por sección: **qué dice → qué debe decir**.
+completa en Kaggle (`eda/proyecto2-ds.ipynb`). Va sección por sección: **qué dice → qué debe decir**.
 
 Leyenda: 🔁 cifra a actualizar · ✏️ afirmación a corregir · ➕ contenido nuevo · 🖼️ figura a
 regenerar · ⏳ depende de la próxima corrida (5.7.b) · 🔍 verificar en el notebook.
